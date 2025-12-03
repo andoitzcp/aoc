@@ -10,9 +10,9 @@ int getLargestComb(const std::string& s)
 	size_t i = 0;
 	std::vector<int> v;
 	v.insert(v.begin(), s[i++] - '0');
-	while (i < s.length() && v.at(0) != 9)
+	while (i < s.length() && v[0] != 9)
 	{
-		if (v.empty() || s[i] > v.at(0) + '0')
+		if (v.empty() || s[i] > v[0] + '0')
 		{
 			assert(0 <= s[i] - '0' && s[i] - '0' <= 9);
 			v.insert(v.begin(), s[i] - '0');
@@ -22,29 +22,28 @@ int getLargestComb(const std::string& s)
 	std::vector<int> t;
 	while (i < s.length() && s[i] != 9)
 	{
-		if (t.empty() || s[i] > t.at(0) + '0')
+		if (t.empty() || s[i] > t[0] + '0')
 		{
 			assert(0 <= s[i] - '0' && s[i] - '0' <= 9);
 			t.insert(t.begin(), s[i] - '0');
 		}
 		i++;
 	}
-	for (auto it : v)
-		std::cout << std::to_string(v.it() << ",";
-	std::cout << std::endl;
 	if (!t.empty())
 	{
-		int result = v.at(0) * 10 + t.at(0);
+		int result = v[0] * 10 + t[0];
 		std::cout << "t is empty" << std::endl;
+		std::cout << v << std::endl;
 		std::cout << result << std::endl;
 		assert(0 <= result && result <= 99);
 		return result;
 	}
 	else
 	{
-		int result = v.at(1) * 10 + v.at(0);
+		int result = v[1] * 10 + v[0];
 		std::cout << "t is NOT empty" << std::endl;
 		std::cout << s << std::endl;
+		std::cout << v << std::endl;
 		std::cout << result << std::endl;
 		assert(0 <= result && result <= 99);
 		return result;
